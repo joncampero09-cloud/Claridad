@@ -1,5 +1,4 @@
-// Función serverless (Vercel). Recibe {messages:[{role,content}]} y responde {text}.
-const uso = new Map(); // límite diario por IP (aproximado en serverless)
+const uso = new Map();
 
 module.exports = async (req, res) => {
   if (req.method !== "POST") return res.status(405).json({ error: "method" });
@@ -22,17 +21,20 @@ module.exports = async (req, res) => {
     const r = await fetch("https://api.anthropic.com/v1/messages", {
       method: "POST",
       headers: {
-        "x-api-key": process.env.ANTHROPIC_API_KEY,
+        "x-api-key": process.env.ANTHROPIC_API_KEY.trim(),
         "anthropic-version": "2023-06-01",
         "content-type": "application/json"
       },
-      body: JSON.stringify({ model: process.env.MODEL || "claude-sonnet-5", max_tokens: 900, messages: msgs })
+      body: JSON.stringify({ model: (process.env.MODEL || "claude-sonnet-5-5").trim(), max_tokens: 900, messages: msgs })
     });
-    if (!r.ok) return res.status(502).json({ error: "upstream" });
-    const d = await r.json();
+    const d = await r.json().catch(() => ({}));
+    if (!r.ok) {
+      const detalle = (d && d.error && d.error.message) || "sin detalle";
+      return res.status(502).json({ error: "upstream", status: r.status, detalle });
+    }
     const text = (d.content || []).filter(b => b.type === "text").map(b => b.text).join("\n");
     return res.status(200).json({ text });
   } catch (e) {
-    return res.status(502).json({ error: "upstream" });
+    return res.status(502).json({ error: "upstream", detalle: String(e && e.message) });
   }
 };
