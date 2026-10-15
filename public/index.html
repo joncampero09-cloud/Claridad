@@ -128,6 +128,8 @@ const icon=c=>ICONS[c]||"✨";
 const mins=p=>Math.max(1,Math.ceil(((p.theory||"")+" "+(p.opinion||"")).split(/\s+/).filter(Boolean).length/180))+3;
 const cardHtml=x=>`<div class="pc item" data-id="${x.id}" tabindex="0"><div class="ph"><span>${esc(x.cat||"")}</span></div><div class="pb"><h3>${esc(x.title)}</h3><p>${esc(x.summary)}</p><div class="meta2">${mins(x)} min · ${esc(x.level||"Principiante")}${x.draft?" · Borrador":""}</div></div></div>`;
 const related=p=>{const v=S.posts.filter(x=>x!==p&&(owner||!x.draft));const same=v.filter(x=>x.cat&&x.cat===p.cat);const r=[...same,...v.filter(x=>!same.includes(x))].slice(0,2);return r.length?`<section><div class="sech"><h2>Sigue aprendiendo</h2></div><div class="cards">${r.map(cardHtml).join("")}</div></section>`:""};
+const lsGet=(id,k)=>{try{return localStorage.getItem("claridad:"+id+":"+k)||""}catch(e){return ""}};
+const lsSet=(id,k,v)=>{try{localStorage.setItem("claridad:"+id+":"+k,v)}catch(e){}};
 const copy=async t=>{try{await navigator.clipboard.writeText(t);return true}catch(e){try{const a=document.createElement("textarea");a.value=t;a.style.position="fixed";a.style.opacity="0";document.body.appendChild(a);a.select();const ok=document.execCommand("copy");a.remove();return ok}catch(e2){return false}}};
 
 document.getElementById("brandlink").onclick=()=>go(null);
@@ -232,7 +234,7 @@ function render(){
     <p style="margin-top:0">Los cambios grandes empiezan con pasos pequeños. Crea tu plan de 7 días, con una acción por día, y llévatelo a tu WhatsApp o correo.</p>
     <label for="pg">¿Qué quieres lograr con este tema?</label><input id="pg" placeholder="Ej: manejar mejor mi enojo en el trabajo">
     <label>¿Cuánto tiempo tienes al día?</label><div class="chips" id="pt" style="padding:6px 0 14px"></div>
-    <button class="main" id="pgen">Crear mi plan</button><p class="sub" id="pnote" style="margin:12px 0 0"></p><div id="pout"></div>
+    <button class="main" id="pgen">Crear mi plan</button><p class="sub" id="pnote" style="margin:12px 0 0"></p><p class="note" style="color:var(--mute);margin:10px 0 0">Tu objetivo y tu último ejercicio se guardan solo en este dispositivo. <button id="clr" style="padding:0;border:0;background:none;color:var(--ac);text-decoration:underline;font:inherit;cursor:pointer;display:inline">Borrar lo guardado</button></p><div id="pout"></div>
     <p class="note" id="pns" hidden style="color:var(--mute)">El plan con IA funciona al abrirlo dentro de Claude.</p></div></section>`;
   }
   if(!edit)h+=related(p);
@@ -252,6 +254,10 @@ function render(){
 function setupPlan(p){
   const q=id=>document.getElementById(id);let mn=10;
   const tb=q("pt");
+const g0=lsGet(p.id,"goal");if(g0)q("pg").value=g0;
+const r0=lsGet(p.id,"practica");if(r0&&!reflection)reflection=r0;
+q("pg").oninput=()=>lsSet(p.id,"goal",q("pg").value);
+q("clr").onclick=()=>{["goal","practica"].forEach(k=>{try{localStorage.removeItem("claridad:"+p.id+":"+k)}catch(e){}});reflection="";q("pg").value="";q("pnote").textContent="Listo, borré lo guardado."};
   const dt=()=>{tb.innerHTML=[5,10,15].map(n=>`<button class="chip${mn===n?" on":""}" data-n="${n}">${n} min</button>`).join("");tb.querySelectorAll(".chip").forEach(b=>b.onclick=()=>{mn=+b.dataset.n;dt()})};
   dt();
   if(!sample){q("pgen").disabled=true;q("pns").hidden=false;return}
@@ -273,12 +279,19 @@ function setupPlan(p){
   q("pgen").onclick=async()=>{
     const btn=q("pgen");btn.disabled=true;q("pout").innerHTML='<p class="sub">Creando tu plan...</p>';
     try{
-      const goal=q("pg").value.trim();const ref=reflection.slice(-2500);q("pnote").textContent=ref?"Voy a personalizar tu plan con lo que compartiste en tu reflexión.":"";
-      const r=await sample.json("Eres un coach de hábitos que usa micro-pasos: acciones pequeñas que se repiten. Contexto del curso:\nTema: "+p.title+"\n"+p.theory.slice(0,2500)+"\nIndicaciones del autor: "+p.exercise+"\n\nObjetivo de la persona: "+(goal||"aplicar lo aprendido en este tema")+"\nTiempo disponible por día: "+mn+" minutos.\n"+(ref?"\nLa persona hizo una reflexión guiada. Conversación:\n"+ref+"\nPersonaliza el plan con lo que compartió, sin repetir detalles íntimos textualmente. Si expresó malestar fuerte, incluye un paso para hablar con alguien de confianza o un profesional, sin dramatizar.\n":"")+"\nDevuelve SOLO JSON con esta forma: {\"objetivo\":\"frase corta\",\"dias\":[{\"dia\":1,\"accion\":\"...\",\"minutos\":"+mn+"}]}. Exactamente 7 días. Reglas: cada acción es concreta, empieza con un verbo, cabe en "+mn+" minutos o menos, no requiere nada especial y tiene máximo 18 palabras. El día 1 debe ser ridículamente fácil. Sube la dificultad poco a poco. Español.",{cache:false});
-      const days=(r.dias||[]).slice(0,7).map((d,i)=>({dia:i+1,accion:String(d.accion||"").trim(),minutos:Math.min(+d.minutos||mn,mn)})).filter(d=>d.accion);
-      if(!days.length)throw 0;
-      show(String(r.objetivo||goal||p.title),days);
-    }catch(e){q("pout").innerHTML='<p class="sub">No se pudo crear el plan. Intenta de nuevo.</p>'}
+      const goal=q("pg").value.trim();const ref=reflection.slice(-2500);q("pnote").textContent=ref?"Voy a personalizar tu plan con lo que trabajaste en tu último ejercicio.":"";
+      const prompt="Eres un coach de hábitos que usa micro-pasos: acciones pequeñas que se repiten. Contexto del curso:\nTema: "+p.title+"\n"+p.theory.slice(0,2500)+"\nIndicaciones del autor: "+p.exercise+"\n\nObjetivo de la persona: "+(goal||"aplicar lo aprendido en este tema")+"\nTiempo disponible por día: "+mn+" minutos.\n"+(ref?"\nLa persona hizo un ejercicio guiado. Contenido:\n"+ref+"\nPersonaliza el plan con lo que trabajó y compartió, sin repetir detalles íntimos textualmente. Si expresó malestar fuerte, incluye un paso para hablar con alguien de confianza o un profesional, sin dramatizar.\n":"")+"\nDevuelve SOLO JSON con esta forma: {\"objetivo\":\"frase corta\",\"dias\":[{\"dia\":1,\"accion\":\"...\",\"minutos\":"+mn+"}]}. Exactamente 7 días. Reglas: cada acción es concreta, empieza con un verbo, cabe en "+mn+" minutos o menos, no requiere nada especial y tiene máximo 18 palabras. El día 1 debe ser ridículamente fácil. Sube la dificultad poco a poco. Español.";
+let r=null,days=[];
+for(let t=0;t<2&&!days.length;t++){
+try{
+r=await sample.json(prompt,{cache:false});
+const arr=r.dias||r["días"]||r.plan||r.days||[];
+days=arr.slice(0,7).map((d,i)=>({dia:i+1,accion:String(d.accion||d["acción"]||d.action||"").trim(),minutos:Math.min(+d.minutos||mn,mn)})).filter(d=>d.accion);
+}catch(err){if(err&&err.code==="rate_limited")throw err}
+}
+if(!days.length)throw 0;
+show(String(r.objetivo||goal||p.title),days);
+    }catch(e){q("pout").innerHTML='<p class="sub">'+(e&&e.code==="rate_limited"?"Llegaste al límite de uso por hoy. Vuelve mañana.":"No se pudo crear el plan. Intenta de nuevo en unos segundos.")+'</p>'}
     finally{btn.disabled=false;btn.textContent="Crear otro plan"}
   };
 }
@@ -288,7 +301,7 @@ function setupExercise(p){
   const SYS="Eres un acompañante de reflexión cálido, no un terapeuta. Escucha, reconoce lo que la persona siente y ayúdala a expresarse con UNA pregunta a la vez. Responde en español, entre 60 y 110 palabras, en prosa, sin listas ni diagnósticos. Puedes conectar con el tema del curso cuando ayude. Si la persona dice que se siente mal, acompáñala con calma y invítala a contar más. Si menciona hacerse daño, no querer vivir o estar en peligro, responde con mucho cuidado, no digas que ese deseo es comprensible, anímala a hablar ahora con alguien de confianza o con un servicio profesional o de emergencia de su país, y recuerda que no sustituyes ayuda profesional.";
   const mb=q("modes");
   const drawModes=()=>{mb.innerHTML=Object.keys(MODES).map(k=>`<button class="chip${mode===k?" on":""}" data-m="${k}">${MODES[k][0]}</button>`).join("");mb.querySelectorAll(".chip").forEach(b=>b.onclick=()=>{mode=b.dataset.m;reset();drawModes()});q("rn").hidden=mode!=="reflexion"};
-  const reset=()=>{reflection="";ch="";view=[];hist=[];q("ch").textContent="";q("fb").innerHTML="";q("ab").hidden=true;q("chat").hidden=true;q("cp").hidden=true;q("ans").value="";q("ans2").value=""};
+  const reset=()=>{ch="";view=[];hist=[];q("ch").textContent="";q("fb").innerHTML="";q("ab").hidden=true;q("chat").hidden=true;q("cp").hidden=true;q("ans").value="";q("ans2").value=""};
   drawModes();
   if(!sample){q("gen").disabled=true;q("ns").hidden=false;return}
   const thread=()=>{q("fb").innerHTML=view.map(m=>`<div class="msg ${m.r}">${esc(m.t)}</div>`).join("")};
@@ -302,7 +315,7 @@ function setupExercise(p){
     btn.disabled=true;view.push({r:"a",t:"Pensando..."});thread();
     try{
       const r=await sample(hist,{cache:false,onText:({text})=>{view[view.length-1].t=text;thread()}});
-      view[view.length-1].t=r.text;hist.push({role:"assistant",content:r.text});thread();reflection=view.map(m=>(m.r==="u"?"Persona: ":"Acompañante: ")+m.t).join("\n");
+      view[view.length-1].t=r.text;hist.push({role:"assistant",content:r.text});thread();reflection="Tipo de ejercicio: Reflexión (conversación)\nEjercicio: "+ch+"\n"+view.map(m=>(m.r==="u"?"Persona: ":"Acompañante: ")+m.t).join("\n");lsSet(p.id,"practica",reflection);
       q("chat").hidden=false;q("cp").hidden=false;q("cp").textContent="Copiar la conversación";
     }catch(e){view[view.length-1].t=e&&e.code==="rate_limited"?"Llegaste al límite de uso por hoy. Vuelve mañana.":"No se pudo completar. Intenta de nuevo.";hist.pop();thread()}
     finally{btn.disabled=false}
@@ -323,7 +336,7 @@ function setupExercise(p){
     const style="Eres un profesor exigente pero amable. Máximo 120 palabras: 1) qué hizo bien, 2) qué le falta, 3) una pregunta para que profundice.";
     q("fb").textContent="Pensando...";
     const r=await run("Español.\n"+ctx+"\n\nEjercicio: "+ch+"\nRespuesta del alumno: "+a+"\n\n"+style,q("fb"),q("send"));
-    if(r){view=[{r:"u",t:a},{r:"a",t:r}];q("cp").hidden=false;q("cp").textContent="Copiar mi respuesta"}
+    if(r){reflection="Tipo de ejercicio: "+MODES[mode][0]+"\nEjercicio: "+ch+"\nRespuesta de la persona: "+a+"\nRetroalimentación: "+r;lsSet(p.id,"practica",reflection);view=[{r:"u",t:a},{r:"a",t:r}];q("cp").hidden=false;q("cp").textContent="Copiar mi respuesta"}
   };
   q("send2").onclick=async()=>{
     const a=q("ans2").value.trim();if(!a)return;
