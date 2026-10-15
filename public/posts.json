@@ -1,0 +1,40 @@
+{
+  "title": "Claridad",
+  "subtitle": "Aprende con teoría, video y práctica con IA.",
+  "posts": [
+    {
+      "id": "inteligencia-emocional",
+      "title": "Inteligencia emocional: lo básico que sí funciona",
+      "summary": "Cinco habilidades simples y poderosas para entender y manejar tus emociones.",
+      "theory": "La inteligencia emocional es la capacidad de reconocer lo que sientes, entender por qué lo sientes y decidir qué hacer con ello. Daniel Goleman la popularizó, y su base cabe en cinco habilidades.\n\n1. Autoconciencia: ponerle nombre a lo que sientes. Decir \"estoy frustrado\" y no solo \"estoy mal\" ya baja la intensidad.\n2. Autorregulación: la pausa entre lo que sientes y lo que haces. No se trata de reprimir, sino de elegir la respuesta.\n3. Motivación: dirigir tu energía hacia metas que te importan, incluso cuando el ánimo no acompaña.\n4. Empatía: entender lo que siente el otro sin necesitar que piense igual que tú. Escuchar antes de responder.\n5. Habilidades sociales: comunicar con claridad, poner límites con respeto y resolver conflictos sin destruir la relación.\n\nUna regla práctica: primero nombra la emoción, luego respira, y solo después responde. Ese orden evita la mayoría de los arrepentimientos.",
+      "opinion": "Escribe aquí tu opinión: cuál de las cinco habilidades consideras la más difícil, en qué situación de tu vida la has necesitado y qué mito sobre las emociones te gustaría corregir.",
+      "video": "https://youtu.be/JAwUzXSIjCk?si=KNqLjSfHIbxXmmcA",
+      "exercise": "Practicar inteligencia emocional con situaciones cotidianas realistas (un mensaje que molesta, una crítica en el trabajo, una discusión familiar). En cada reto, pide que la persona identifique la emoción, elija una pausa y redacte una respuesta. Varía la habilidad entre autoconciencia, autorregulación, empatía y habilidades sociales.",
+      "cat": "Inteligencia emocional"
+    },
+    {
+      "id": "leyes-simplicidad",
+      "title": "Las leyes de la simplicidad",
+      "summary": "Las 10 ideas de John Maeda para diseñar y vivir con menos ruido.",
+      "theory": "John Maeda, diseñador y profesor del MIT, propuso diez leyes de la simplicidad. Simplificar no es quitar por quitar: es conservar lo que importa.\n\n1. Reducir: la forma más sencilla de lograr simplicidad es reducir con criterio.\n2. Organizar: agrupar hace que muchas cosas parezcan pocas.\n3. Tiempo: ahorrar tiempo se siente como simplicidad.\n4. Aprender: el conocimiento vuelve todo más simple.\n5. Diferencias: simplicidad y complejidad se necesitan entre sí.\n6. Contexto: lo que está en la periferia también importa.\n7. Emoción: más emoción es mejor que menos.\n8. Confianza: en la simplicidad confiamos.\n9. Fracaso: algunas cosas nunca serán simples.\n10. La única: quita lo obvio, añade lo significativo.",
+      "opinion": "Escribe aquí tu punto de vista: qué ley te parece más útil y cuándo simplificar se vuelve un error.",
+      "video": "",
+      "exercise": "Practicar la aplicación de las leyes de la simplicidad de Maeda en situaciones cotidianas (una app, un mensaje, un proceso). Varía la ley en cada reto.",
+      "cat": "Hábitos y productividad"
+    }
+  ],
+  "cats": [
+    "Inteligencia emocional",
+    "Desarrollo profesional",
+    "Propósito de vida",
+    "Espiritualidad",
+    "Hábitos y productividad",
+    "Mentalidad y crecimiento personal",
+    "Autoestima",
+    "Relaciones y comunicación",
+    "Liderazgo",
+    "Salud y bienestar mental",
+    "Finanzas personales",
+    "Creatividad"
+  ]
+}

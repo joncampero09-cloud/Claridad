@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="light" style="color-scheme: light;"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Claridad</title>
+<meta name="description" content="Mini-cursos para pensar mejor y actuar: teoría, práctica con IA y un plan de 7 días.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,800&amp;family=DM+Sans:wght@400;500;700&amp;display=swap" rel="stylesheet">
+<style>
+:root{--bg:#eef3f1;--fg:#12271f;--mute:#5c7268;--card:#fff;--line:#d9e5df;--ac:#0f6e5c;--acbg:#e3f1ea;--gold:#f2b632;--h1:#0d2e28;--h2:#12594a;--r:18px;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0e1a16;--fg:#eaf3ee;--mute:#9db3a9;--card:#182620;--line:#2a3b33;--ac:#5fd3a6;--acbg:#152720;--h1:#0a1f1a;--h2:#0f3e34}}
+:root[data-theme="dark"]{--bg:#0e1a16;--fg:#eaf3ee;--mute:#9db3a9;--card:#182620;--line:#2a3b33;--ac:#5fd3a6;--acbg:#152720;--h1:#0a1f1a;--h2:#0f3e34}
+html{scroll-padding-top:calc(env(safe-area-inset-top,0px) + 56px)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.65 "DM Sans",system-ui,-apple-system,sans-serif;-webkit-font-smoothing:antialiased}
+h1,h2,h3{font-family:Fraunces,Georgia,"Times New Roman",serif;letter-spacing:-.01em}
+.wrap{max-width:960px;margin:0 auto;padding:0 20px}
+.topbar{position:sticky;top:0;z-index:5;background:var(--bg);border-bottom:1px solid var(--line);padding:14px 0}
+.topbar .wrap{display:flex;align-items:center;justify-content:space-between}
+.brand{font-family:Fraunces,serif;font-weight:800;font-size:1.3rem;letter-spacing:.02em;color:var(--fg);text-decoration:none;cursor:pointer}
+.brand span{color:var(--ac)}
+.hero{background:linear-gradient(135deg,var(--h1),var(--h2) 65%,#1a7a63);color:#fff;padding:56px 0 70px;position:relative;overflow:hidden}
+.hero::after{content:"";position:absolute;inset:0;pointer-events:none;background:radial-gradient(circle at 82% 20%,rgba(242,182,50,.18),transparent 55%)}
+.hero .wrap{position:relative;z-index:1}
+.hero h1{font-size:clamp(2.4rem,7vw,3.4rem);font-weight:800;line-height:1.05;margin:0 0 14px}
+.hero p{margin:0 0 26px;font-size:1.15rem;opacity:.9;max-width:42ch}
+.actions{display:flex;flex-wrap:wrap;gap:10px}
+.feat{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:14px;margin:34px 0 10px}
+.feat .fc{display:block;width:100%;text-align:left;background:var(--card);color:var(--fg);border:1px solid var(--line);border-radius:16px;padding:16px;font:inherit;cursor:pointer;transition:transform .15s,border-color .15s}
+.feat .fc:hover{border-color:var(--gold);transform:translateY(-2px)}
+.feat .ic{font-size:1.4rem}
+.feat b{display:block;margin:8px 0 2px;font-size:.95rem;color:var(--fg)}
+.feat span{color:var(--mute);font-size:.85rem}
+section{margin-top:46px}
+.sech{display:flex;align-items:baseline;justify-content:space-between;margin-bottom:16px}
+.sech h2{font-size:1.5rem;margin:0}
+.catgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:12px}
+.catcard{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:16px;cursor:pointer;text-align:left;font:inherit;color:var(--fg)}
+.catcard:hover{border-color:var(--ac)}
+.catcard .ic{width:38px;height:38px;border-radius:10px;background:var(--acbg);color:var(--ac);display:flex;align-items:center;justify-content:center;font-size:1.2rem;margin-bottom:10px}
+.catcard b{font-size:.92rem;font-weight:700}
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:16px}
+.pc{background:var(--card);border:1px solid var(--line);border-radius:var(--r);overflow:hidden;cursor:pointer;display:flex;flex-direction:column}
+.pc:hover{border-color:var(--ac)}
+.pc .ph{height:110px;background:linear-gradient(135deg,var(--h2),var(--ac));position:relative;display:flex;align-items:flex-end;padding:10px 14px}
+.pc .ph span{background:rgba(255,255,255,.92);color:var(--h1);font:700 .72rem "DM Sans",sans-serif;border-radius:999px;padding:4px 10px}
+.pc .pb{padding:16px}
+.pc h3{font-size:1.08rem;line-height:1.3;margin:0 0 6px}
+.pc p{color:var(--mute);font-size:.9rem;margin:0 0 12px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.pc .meta2{color:var(--ac);font-size:.8rem;font-weight:700;display:flex;gap:6px;align-items:center}
+.search{border-radius:999px;padding:14px 20px;border:1px solid var(--line);background:var(--card);width:100%;font:1rem "DM Sans",sans-serif;color:var(--fg)}
+.chips{display:flex;gap:8px;overflow-x:auto;padding:16px 0 4px;-webkit-overflow-scrolling:touch}
+.chip{white-space:nowrap;padding:9px 16px;font:600 .88rem "DM Sans",sans-serif;border-radius:999px;border:1px solid var(--line);background:var(--card);color:var(--fg);cursor:pointer}
+.chip.on{background:var(--ac);color:#fff;border-color:var(--ac)}
+button,a.btn{font:700 .95rem "DM Sans",system-ui,sans-serif;cursor:pointer;border-radius:999px;border:1px solid var(--line);background:var(--card);color:var(--fg);padding:12px 22px;text-decoration:none;display:inline-block}
+.hero button,.hero a.btn{border-color:rgba(255,255,255,.35)}
+.hero .ghost{background:rgba(255,255,255,.1);color:#fff}
+.main{background:var(--gold)!important;color:#10222c!important;border-color:var(--gold)!important}
+button:disabled{opacity:.55;cursor:default}
+button:focus-visible,a:focus-visible,input:focus-visible,textarea:focus-visible,.catcard:focus-visible,.pc:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+.postbar{background:var(--h1);color:#fff;padding:20px 0 36px}
+.postbar .top{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap}
+.postbar .top a,.postbar .top button{color:#fff;background:rgba(255,255,255,.1);border-color:rgba(255,255,255,.25)}
+.postbar .pill{display:inline-block;background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.3);border-radius:999px;padding:4px 14px;font-size:.82rem}
+.postbar h1{font-size:clamp(1.7rem,5vw,2.3rem);margin:16px 0 10px}
+.meta{display:flex;gap:14px;flex-wrap:wrap;color:rgba(255,255,255,.8);font-size:.88rem;margin-top:4px}
+.tabs{display:flex;gap:8px;overflow-x:auto;margin:-46px 0 30px;padding:0 0 4px;position:relative;z-index:1;-webkit-overflow-scrolling:touch}
+.tab{white-space:nowrap;background:var(--card);border:1px solid var(--line);border-radius:999px;padding:9px 16px 9px 10px;font:600 .85rem "DM Sans",sans-serif;color:var(--fg);display:flex;align-items:center;gap:7px;cursor:pointer;box-shadow:0 2px 8px rgba(0,0,0,.06)}
+.tab .num{width:20px;height:20px;border-radius:50%;background:var(--acbg);color:var(--ac);font:800 .72rem Fraunces,serif;display:flex;align-items:center;justify-content:center}
+p{margin:0 0 1em}
+ol.laws{list-style:none;padding:0;margin:0 0 1em;counter-reset:l}
+ol.laws li{counter-increment:l;position:relative;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px 16px 14px 58px;margin:10px 0}
+ol.laws li::before{content:counter(l);position:absolute;left:14px;top:13px;width:30px;height:30px;border-radius:50%;background:var(--acbg);color:var(--ac);font:800 .95rem Fraunces,serif;display:flex;align-items:center;justify-content:center}
+ol.laws b{color:var(--ac);font-weight:700}
+.theorywrap{display:grid;grid-template-columns:1.4fr 1fr;gap:22px;align-items:start}
+.theoryimg{border-radius:var(--r);background:linear-gradient(160deg,var(--acbg),var(--card) 70%);border:1px solid var(--line);min-height:180px;display:flex;align-items:center;justify-content:center;font-size:2.4rem}
+@media (max-width:720px){.theorywrap{grid-template-columns:1fr}}
+.op{font-family:Fraunces,Georgia,serif;font-size:1.2rem;line-height:1.6;background:var(--acbg);border-left:6px solid var(--gold);padding:20px 22px;border-radius:0 var(--r) var(--r) 0}
+.op p:last-child{margin:0}
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:20px}
+input,textarea,select{width:100%;border:1px solid var(--line);border-radius:12px;padding:12px;font:1rem/1.5 "DM Sans",system-ui,sans-serif;background:var(--card);color:var(--fg);margin:6px 0 16px}
+textarea{min-height:110px;resize:vertical}
+label{font-weight:700;font-size:.9rem;color:var(--mute)}
+label.chk{display:flex;align-items:center;gap:10px;margin:0 0 16px;color:var(--fg)}
+input[type=checkbox]{width:20px;height:20px;margin:0}
+.out{white-space:pre-wrap;line-height:1.65;margin-top:14px}
+.out:empty{display:none}
+.lab{background:linear-gradient(135deg,var(--h1),var(--h2));color:#fff;border-radius:var(--r);padding:24px 22px}
+.lab .note{color:rgba(255,255,255,.75);font-size:.9rem}
+.lab textarea{background:#fff;color:#10222c;border:0;margin:14px 0 12px}
+.lab .chip{background:rgba(255,255,255,.14);color:#fff;border-color:rgba(255,255,255,.3)}
+.lab .chip.on{background:var(--gold);color:#10222c;border-color:var(--gold)}
+.lab #toplan,.lab #cp{background:rgba(255,255,255,.14);color:#fff;border-color:rgba(255,255,255,.3)}
+.msg{padding:12px 14px;border-radius:14px;margin:10px 0;white-space:pre-wrap}
+.msg.u{background:#fff;color:#10222c;margin-left:24px}
+.msg.a{background:rgba(255,255,255,.14);margin-right:24px}
+.vid{position:relative;aspect-ratio:16/9;border-radius:var(--r);overflow:hidden;background:#000}
+.vid iframe,.vid video{position:absolute;inset:0;width:100%;height:100%;border:0}
+.day{display:flex;gap:12px;align-items:flex-start;padding:12px 0;border-top:1px solid var(--line)}
+.plan{margin-top:22px}
+.plan h3{font-size:1.25rem;margin:0 0 2px}
+.acts{display:flex;flex-wrap:wrap;gap:8px}
+.rem{display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin-top:18px}
+.rem label{margin:0}
+.rem input{width:auto;margin:0}
+footer{margin:70px 0 40px;color:var(--mute);font-size:.85rem;text-align:center}
+</style>
+</head>
+<body>
+<noscript><div style="max-width:520px;margin:60px auto;padding:0 24px;font:18px/1.6 system-ui,sans-serif;color:#10222c"><h1 style="font-family:Georgia,serif">Claridad</h1><p>Esta página necesita abrirse en un navegador (Chrome, Safari o Edge), no desde la vista previa de WhatsApp, correo o Archivos.</p><p>Guarda el archivo y ábrelo con tu navegador, o pide el enlace directo.</p></div></noscript>
+<div class="topbar"><div class="wrap"><a class="brand" id="brandlink">CLARI<span>DAD</span></a></div></div>
+<main id="app"></main>
+
+<script>
+let S={title:"Claridad",subtitle:"",cats:[],posts:[]};
+let owner=false,art=null,sample=null,edit=false,cur=null,dirty=false,filt="",qs="",reflection="";
+const app=document.getElementById("app");
+const esc=t=>String(t||"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const paras=t=>esc(t).split(/\n{2,}/).map(b=>{const L=b.split("\n");if(L.every(l=>/^\d+\.\s/.test(l)))return '<ol class="laws">'+L.map(l=>{const x=l.replace(/^\d+\.\s/,"");const i=x.indexOf(":");return i>0&&i<40?"<li><b>"+x.slice(0,i)+"</b>"+x.slice(i+1)+"</li>":"<li>"+x+"</li>"}).join("")+"</ol>";return "<p>"+b.replace(/\n/g,"<br>")+"</p>"}).join("");
+const safeUrl=u=>/^https?:\/\//i.test(u||"")?u:"";
+const embed=u=>{u=safeUrl(u);if(!u)return"";let m;
+if(m=u.match(/(?:youtube\.com\/watch\?(?:.*&)?v=|youtu\.be\/|youtube\.com\/shorts\/|youtube\.com\/embed\/)([\w-]{11})/))return `<div class="vid"><iframe src="https://www.youtube-nocookie.com/embed/${m[1]}" title="Video" allow="accelerometer; encrypted-media; picture-in-picture; fullscreen" allowfullscreen loading="lazy"></iframe></div>`;
+if(m=u.match(/vimeo\.com\/(?:video\/)?(\d+)/))return `<div class="vid"><iframe src="https://player.vimeo.com/video/${m[1]}" title="Video" allow="fullscreen; picture-in-picture" allowfullscreen loading="lazy"></iframe></div>`;
+if(/\.(mp4|webm|mov)(\?|$)/i.test(u))return `<div class="vid"><video src="${esc(u)}" controls playsinline preload="metadata"></video></div>`;
+return"";};
+
+const ICONS={"Inteligencia emocional":"🧠","Desarrollo profesional":"💼","Propósito de vida":"🧭","Espiritualidad":"🕊️","Hábitos y productividad":"⏱️","Mentalidad y crecimiento personal":"🌱","Autoestima":"💛","Relaciones y comunicación":"💬","Liderazgo":"🚀","Salud y bienestar mental":"🌤️","Finanzas personales":"📊","Creatividad":"🎨"};
+const icon=c=>ICONS[c]||"✨";
+const mins=p=>Math.max(1,Math.ceil(((p.theory||"")+" "+(p.opinion||"")).split(/\s+/).filter(Boolean).length/180))+3;
+const cardHtml=x=>`<div class="pc item" data-id="${x.id}" tabindex="0"><div class="ph"><span>${esc(x.cat||"")}</span></div><div class="pb"><h3>${esc(x.title)}</h3><p>${esc(x.summary)}</p><div class="meta2">${mins(x)} min · ${esc(x.level||"Principiante")}${x.draft?" · Borrador":""}</div></div></div>`;
+const related=p=>{const v=S.posts.filter(x=>x!==p&&(owner||!x.draft));const same=v.filter(x=>x.cat&&x.cat===p.cat);const r=[...same,...v.filter(x=>!same.includes(x))].slice(0,2);return r.length?`<section><div class="sech"><h2>Sigue aprendiendo</h2></div><div class="cards">${r.map(cardHtml).join("")}</div></section>`:""};
+const copy=async t=>{try{await navigator.clipboard.writeText(t);return true}catch(e){try{const a=document.createElement("textarea");a.value=t;a.style.position="fixed";a.style.opacity="0";document.body.appendChild(a);a.select();const ok=document.execCommand("copy");a.remove();return ok}catch(e2){return false}}};
+
+document.getElementById("brandlink").onclick=()=>go(null);
+sample=async(input,o={})=>{
+  const msgs=typeof input==="string"?[{role:"user",content:input}]:input;
+  const r=await fetch("/api/ai",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({messages:msgs})});
+  if(!r.ok){const e=new Error("ai");e.code=r.status===429?"rate_limited":"error";throw e}
+  const d=await r.json();if(o.onText)o.onText({text:d.text});return {text:d.text};
+};
+sample.json=async(input,o)=>{const r=await sample(input,o);const t=r.text.replace(/```json|```/g,"").trim();const j=t.match(/\{[\s\S]*\}/);return JSON.parse(j?j[0]:t)};
+(async()=>{
+  try{S=await (await fetch("posts.json",{cache:"no-store"})).json()}catch(e){}
+  const m=/#p=([\w-]+)/.exec(location.hash);if(m&&S.posts.find(p=>p.id===m[1]))cur=m[1];
+  render();
+})();
+
+function go(id){cur=id;edit=false;try{location.hash=id?"p="+id:""}catch(e){}render();scrollTo(0,0)}
+
+async function save(btn){
+  if(!art){btn.textContent="Solo funciona dentro de Claude";return}
+  btn.disabled=true;btn.textContent="Guardando...";
+  try{
+    const c=document.documentElement.cloneNode(true);
+    c.querySelector("#app").innerHTML="";
+    c.querySelector("#data").textContent=JSON.stringify(S).replace(/</g,"\\u003c");
+    await art.publish("<!DOCTYPE html>\n"+c.outerHTML);
+  }catch(e){btn.disabled=false;btn.textContent="Guardar y publicar";if(!e||e.code!=="conflict")btn.textContent="No se pudo guardar. Reintentar"}
+}
+
+function render(){
+  const p=S.posts.find(x=>x.id===cur);
+  if(!p){
+    const vis=S.posts.filter(x=>owner||!x.draft);
+    const cats=S.cats||[];
+    const used=cats.filter(c=>vis.some(x=>x.cat===c));
+    app.innerHTML=`
+    <div class="hero"><div class="wrap">
+      <h1>${esc(S.title)}</h1><p>${esc(S.subtitle)}</p>
+      <div class="actions"><button class="main" id="cta1">Explorar contenidos</button>${owner?`<button class="ghost" id="new">+ Nuevo post</button>`:""}</div>
+      <div class="feat">
+        <button class="fc" data-go="lib"><div class="ic">📖</div><b>Aprende</b><span>Contenido claro y práctico</span></button>
+        <button class="fc" data-go="s4"><div class="ic">💭</div><b>Reflexiona</b><span>Preguntas que te hacen crecer</span></button>
+        <button class="fc" data-go="s4"><div class="ic">🎯</div><b>Aplica</b><span>Ejercicios con IA</span></button>
+        <button class="fc" data-go="s5"><div class="ic">📈</div><b>Avanza</b><span>Convierte el conocimiento en acción</span></button>
+      </div>
+    </div></div>
+    <div class="wrap">
+      ${used.length?`<section><div class="sech"><h2>Categorías</h2></div><div class="catgrid">${used.map(c=>`<button class="catcard" data-c="${esc(c)}"><div class="ic">${icon(c)}</div><b>${esc(c)}</b></button>`).join("")}</div></section>`:""}
+      <section id="biblioteca"><div class="sech"><h2>Biblioteca</h2></div>
+      <input id="sq" class="search" type="search" placeholder="Buscar por tema o palabra" value="${esc(qs)}">
+      ${used.length?`<div class="chips">${["",...used].map(c=>`<button class="chip${filt===c?" on":""}" data-c="${esc(c)}">${c?esc(c):"Todos"}</button>`).join("")}</div>`:""}
+      <div id="list" style="margin-top:18px"></div></section>
+    </div>`;
+    const card=x=>`<div class="pc item" data-id="${x.id}" tabindex="0"><div class="ph"><span>${esc(x.cat||"")}</span></div><div class="pb"><h3>${esc(x.title)}</h3><p>${esc(x.summary)}</p><div class="meta2">${mins(x)} min · ${esc(x.level||"Principiante")}${x.draft?" · Borrador":""}</div></div></div>`;
+    const draw=()=>{
+      const t=qs.trim().toLowerCase();
+      const list=vis.filter(x=>(!filt||x.cat===filt)&&(!t||[x.title,x.summary,x.theory,x.cat].join(" ").toLowerCase().includes(t)));
+      document.getElementById("list").innerHTML=list.length?`<div class="cards">${list.map(card).join("")}</div>`:`<p class="sub" style="color:var(--mute)">${vis.length?"No encontré nada con esa búsqueda.":"Aún no hay publicaciones."}</p>`;
+      app.querySelectorAll(".item").forEach(e=>{e.onclick=()=>go(e.dataset.id);e.onkeydown=k=>{if(k.key==="Enter")go(e.dataset.id)}});
+    };
+    draw();
+    document.getElementById("sq").oninput=e=>{qs=e.target.value;draw()};
+    app.querySelectorAll(".chip,.catcard").forEach(e=>e.onclick=()=>{filt=e.dataset.c;render()});
+    app.querySelectorAll(".fc").forEach(e=>e.onclick=()=>{const t=e.dataset.go;if(t==="lib"){document.getElementById("biblioteca").scrollIntoView({behavior:"smooth"});return}const x=vis[0];if(!x)return;go(x.id);setTimeout(()=>{const el=document.getElementById(t);if(el&&el.scrollIntoView)el.scrollIntoView({behavior:"smooth"})},60)});
+    const c1=document.getElementById("cta1");if(c1)c1.onclick=()=>document.getElementById("biblioteca").scrollIntoView({behavior:"smooth"});
+    const n=document.getElementById("new");
+    if(n)n.onclick=()=>{const id="p"+Date.now().toString(36);S.posts.unshift({id,title:"Nuevo post",summary:"",cat:filt||"",level:"Principiante",draft:true,theory:"",opinion:"",video:"",exercise:""});cur=id;edit=true;dirty=true;render()};
+    return;
+  }
+  let bar=`<a id="back">← Biblioteca</a>`;
+  if(owner)bar+=edit?`<button class="main" id="save">Guardar y publicar</button><button id="del">Eliminar</button>`:`<button id="ed">Editar</button>`;
+  let h=`<div class="postbar"><div class="wrap"><div class="top">${bar}</div>${p.cat?`<span class="pill">${icon(p.cat)} ${esc(p.cat)}</span>`:""}<h1>${esc(p.title)}</h1>${p.summary?`<p style="opacity:.85;max-width:56ch;margin:0 0 6px">${esc(p.summary)}</p>`:""}<div class="meta"><span>⏱ ${mins(p)} min</span><span>${esc(p.level||"Principiante")}</span>${p.draft?"<span>Borrador</span>":""}</div></div></div><div class="wrap">`;
+  if(edit){
+    h+=`<section style="margin-top:30px"><label>Título</label><input data-f="title" value="${esc(p.title)}">
+    <label>Categoría</label><select data-f="cat"><option value="">Sin categoría</option>${(S.cats||[]).map(c=>`<option value="${esc(c)}"${p.cat===c?" selected":""}>${esc(c)}</option>`).join("")}</select>
+    <div style="display:flex;gap:8px;margin:-6px 0 16px"><input id="nc" placeholder="¿Otra categoría? Escríbela" style="margin:0"><button id="addc">Añadir</button></div>
+    <label>Nivel</label><select data-f="level">${["Principiante","Intermedio","Avanzado"].map(l=>`<option${(p.level||"Principiante")===l?" selected":""}>${l}</option>`).join("")}</select>
+    <label class="chk"><input type="checkbox" data-f="draft"${p.draft?" checked":""}> Borrador (solo tú lo ves hasta desmarcarlo)</label>
+    <label>Resumen (aparece en la biblioteca)</label><input data-f="summary" value="${esc(p.summary)}">
+    <label>Teoría (una línea en blanco entre párrafos; para listas escribe "1. Título: texto")</label><textarea data-f="theory" style="min-height:220px">${esc(p.theory)}</textarea>
+    <label>Mi opinión</label><textarea data-f="opinion">${esc(p.opinion)}</textarea>
+    <label>Enlace del video (YouTube, Vimeo o .mp4)</label><input data-f="video" value="${esc(p.video)}">
+    <label>Qué debe practicar la IA en el ejercicio</label><textarea data-f="exercise">${esc(p.exercise)}</textarea></section>`;
+  }else{
+    h+=`<div class="tabs">
+    <a href="#s1" class="tab"><span class="num">1</span>Teoría</a>
+    <a href="#s2" class="tab"><span class="num">2</span>Mi opinión</a>
+    <a href="#s3" class="tab"><span class="num">3</span>Video</a>
+    <a href="#s4" class="tab"><span class="num">4</span>Ponlo en práctica</a>
+    <a href="#s5" class="tab"><span class="num">5</span>Plan de acción</a></div>
+    <section id="s1"><div class="sech"><h2>1 — Teoría</h2></div><div class="theorywrap"><div>${paras(p.theory)}</div><div class="theoryimg">${icon(p.cat)}</div></div></section>
+    <section id="s2"><div class="sech"><h2>2 — Mi opinión</h2></div><div class="op">${paras(p.opinion)}</div></section>
+    <section id="s3"><div class="sech"><h2>3 — Video</h2></div>${safeUrl(p.video)?embed(p.video)+`<p class="sub" style="margin:12px 0 0;color:var(--mute)">¿No carga? <a href="${esc(safeUrl(p.video))}" target="_blank" rel="noopener" style="color:var(--ac);font-weight:700">Ábrelo en otra pestaña</a>.</p>`:`<p class="sub" style="color:var(--mute)">El video llegará pronto.</p>`}</section>
+    <section id="s4"><div class="sech"><h2>4 — Ponlo en práctica</h2></div><div class="lab">
+    <p class="t">Elige el tipo de ejercicio. La IA lo plantea y revisa tu respuesta.</p>
+    <div class="chips" id="modes" style="padding:0 0 12px"></div>
+    <p class="note" id="rn" hidden style="margin:0 0 12px">La reflexión es un espacio para expresarte y seguir conversando. No sustituye ayuda profesional; si te sientes en crisis, habla con alguien de confianza o con un servicio de emergencia de tu país.</p>
+    <button class="main" id="gen">Generar ejercicio</button><div class="out" id="ch"></div>
+    <div id="ab" hidden><textarea id="ans" placeholder="Escribe tu respuesta..."></textarea><button class="main" id="send">Evaluar mi respuesta</button><div class="out" id="fb"></div><div id="chat" hidden><textarea id="ans2" placeholder="Sigue conversando..." style="min-height:80px"></textarea><button class="main" id="send2">Enviar</button> <button id="toplan">Convertir esto en mi plan de acción</button></div><button id="cp" hidden style="margin-top:14px">Copiar</button></div>
+    <p class="note" id="ns" hidden>El ejercicio con IA funciona al abrirlo dentro de Claude.</p></div></section>
+    <section id="s5"><div class="sech"><h2>5 — Tu plan de acción</h2></div><div class="card">
+    <p style="margin-top:0">Los cambios grandes empiezan con pasos pequeños. Crea tu plan de 7 días, con una acción por día, y llévatelo a tu WhatsApp o correo.</p>
+    <label for="pg">¿Qué quieres lograr con este tema?</label><input id="pg" placeholder="Ej: manejar mejor mi enojo en el trabajo">
+    <label>¿Cuánto tiempo tienes al día?</label><div class="chips" id="pt" style="padding:6px 0 14px"></div>
+    <button class="main" id="pgen">Crear mi plan</button><p class="sub" id="pnote" style="margin:12px 0 0"></p><div id="pout"></div>
+    <p class="note" id="pns" hidden style="color:var(--mute)">El plan con IA funciona al abrirlo dentro de Claude.</p></div></section>`;
+  }
+  if(!edit)h+=related(p);
+  h+=`</div><footer>Claridad</footer>`;
+  app.innerHTML=h;
+  app.querySelectorAll(".item").forEach(e=>{e.onclick=()=>go(e.dataset.id)});
+  const bk=document.getElementById("back");bk.onclick=()=>{if(dirty&&bk.dataset.w!=="1"){bk.dataset.w="1";bk.textContent="Sin guardar. Toca de nuevo para salir";return}dirty=false;go(null)};
+  const q=id=>document.getElementById(id);
+  if(q("addc"))q("addc").onclick=()=>{const v=q("nc").value.trim();if(!v)return;S.cats=S.cats||[];if(!S.cats.includes(v))S.cats.push(v);p.cat=v;dirty=true;render()};
+  if(q("ed"))q("ed").onclick=()=>{edit=true;render()};
+  if(q("save"))q("save").onclick=e=>save(e.target);
+  if(q("del"))q("del").onclick=()=>{const b=q("del").parentNode;b.innerHTML='<span style="align-self:center">¿Eliminar este post?</span><button class="main" id="yes">Sí, eliminar</button><button id="no">Cancelar</button>';q("yes").onclick=e=>{S.posts=S.posts.filter(x=>x!==p);dirty=false;save(e.target)};q("no").onclick=()=>render()};
+  app.querySelectorAll("[data-f]").forEach(i=>i.oninput=()=>{p[i.dataset.f]=i.type==="checkbox"?i.checked:i.value;dirty=true});
+  if(!edit){setupExercise(p);setupPlan(p)}
+}
+
+function setupPlan(p){
+  const q=id=>document.getElementById(id);let mn=10;
+  const tb=q("pt");
+  const dt=()=>{tb.innerHTML=[5,10,15].map(n=>`<button class="chip${mn===n?" on":""}" data-n="${n}">${n} min</button>`).join("");tb.querySelectorAll(".chip").forEach(b=>b.onclick=()=>{mn=+b.dataset.n;dt()})};
+  dt();
+  if(!sample){q("pgen").disabled=true;q("pns").hidden=false;return}
+  const show=(obj,days)=>{
+    const txt="Mi plan de 7 días: "+obj+"\nTema: "+p.title+"\n\n"+days.map(d=>"Día "+d.dia+" ("+d.minutos+" min): "+d.accion).join("\n")+"\n\nUn paso pequeño cada día. Empieza con el Día 1. — Claridad";
+    q("pout").innerHTML=`<div class="plan"><h3 class="ttl">Tu plan de 7 días</h3><p class="sub">${esc(obj)}</p>${days.map(d=>`<div class="day"><span class="n">${d.dia}</span><div><div>${esc(d.accion)}</div><span class="meta2">${d.minutos} min</span></div></div>`).join("")}
+    <p style="margin:18px 0 8px"><b>Llévatelo contigo</b></p>
+    <div class="acts"><a class="btn main" id="wa" target="_blank" rel="noopener">Enviar por WhatsApp</a><a class="btn" id="ml" target="_blank" rel="noopener">Enviar por correo</a><button id="pcp">Copiar</button></div>
+    <div class="rem"><label for="ph">Recordarme cada día a las</label><input type="time" id="ph" value="08:00"><a class="btn" id="cal" target="_blank" rel="noopener">Añadir al calendario</a></div></div>`;
+    q("wa").href="https://wa.me/?text="+encodeURIComponent(txt);
+    q("ml").href="mailto:?subject="+encodeURIComponent("Mi plan de 7 días: "+p.title)+"&body="+encodeURIComponent(txt);
+    const cal=()=>{const t=(q("ph").value||"08:00").split(":"),d=new Date();d.setDate(d.getDate()+1);d.setHours(+t[0],+t[1],0,0);
+      const f=x=>x.getFullYear()+String(x.getMonth()+1).padStart(2,"0")+String(x.getDate()).padStart(2,"0")+"T"+String(x.getHours()).padStart(2,"0")+String(x.getMinutes()).padStart(2,"0")+"00";
+      const e=new Date(d.getTime()+mn*60000);
+      q("cal").href="https://calendar.google.com/calendar/render?action=TEMPLATE&text="+encodeURIComponent("Claridad: mi micro-paso del día")+"&details="+encodeURIComponent(txt)+"&dates="+f(d)+"/"+f(e)+"&recur="+encodeURIComponent("RRULE:FREQ=DAILY;COUNT=7")};
+    cal();q("ph").oninput=cal;
+    q("pcp").onclick=async()=>{q("pcp").textContent=(await copy(txt))?"Copiado":"No se pudo copiar"};
+  };
+  q("pgen").onclick=async()=>{
+    const btn=q("pgen");btn.disabled=true;q("pout").innerHTML='<p class="sub">Creando tu plan...</p>';
+    try{
+      const goal=q("pg").value.trim();const ref=reflection.slice(-2500);q("pnote").textContent=ref?"Voy a personalizar tu plan con lo que compartiste en tu reflexión.":"";
+      const r=await sample.json("Eres un coach de hábitos que usa micro-pasos: acciones pequeñas que se repiten. Contexto del curso:\nTema: "+p.title+"\n"+p.theory.slice(0,2500)+"\nIndicaciones del autor: "+p.exercise+"\n\nObjetivo de la persona: "+(goal||"aplicar lo aprendido en este tema")+"\nTiempo disponible por día: "+mn+" minutos.\n"+(ref?"\nLa persona hizo una reflexión guiada. Conversación:\n"+ref+"\nPersonaliza el plan con lo que compartió, sin repetir detalles íntimos textualmente. Si expresó malestar fuerte, incluye un paso para hablar con alguien de confianza o un profesional, sin dramatizar.\n":"")+"\nDevuelve SOLO JSON con esta forma: {\"objetivo\":\"frase corta\",\"dias\":[{\"dia\":1,\"accion\":\"...\",\"minutos\":"+mn+"}]}. Exactamente 7 días. Reglas: cada acción es concreta, empieza con un verbo, cabe en "+mn+" minutos o menos, no requiere nada especial y tiene máximo 18 palabras. El día 1 debe ser ridículamente fácil. Sube la dificultad poco a poco. Español.",{cache:false});
+      const days=(r.dias||[]).slice(0,7).map((d,i)=>({dia:i+1,accion:String(d.accion||"").trim(),minutos:Math.min(+d.minutos||mn,mn)})).filter(d=>d.accion);
+      if(!days.length)throw 0;
+      show(String(r.objetivo||goal||p.title),days);
+    }catch(e){q("pout").innerHTML='<p class="sub">No se pudo crear el plan. Intenta de nuevo.</p>'}
+    finally{btn.disabled=false;btn.textContent="Crear otro plan"}
+  };
+}
+function setupExercise(p){
+  const q=id=>document.getElementById(id);let ch="",mode="reto",view=[],hist=[];
+  const MODES={reto:["Reto","Crea UN solo reto práctico con una situación concreta y cotidiana; pide una respuesta de 3 a 6 líneas."],reflexion:["Reflexión","Crea UNA pregunta de reflexión personal, cálida y concreta; pide una respuesta honesta de 4 a 8 líneas."],caso:["Caso práctico","Escribe un caso breve (5 a 6 líneas) con un personaje en una situación difícil y pide que la persona diga qué haría y por qué."]};
+  const SYS="Eres un acompañante de reflexión cálido, no un terapeuta. Escucha, reconoce lo que la persona siente y ayúdala a expresarse con UNA pregunta a la vez. Responde en español, entre 60 y 110 palabras, en prosa, sin listas ni diagnósticos. Puedes conectar con el tema del curso cuando ayude. Si la persona dice que se siente mal, acompáñala con calma y invítala a contar más. Si menciona hacerse daño, no querer vivir o estar en peligro, responde con mucho cuidado, no digas que ese deseo es comprensible, anímala a hablar ahora con alguien de confianza o con un servicio profesional o de emergencia de su país, y recuerda que no sustituyes ayuda profesional.";
+  const mb=q("modes");
+  const drawModes=()=>{mb.innerHTML=Object.keys(MODES).map(k=>`<button class="chip${mode===k?" on":""}" data-m="${k}">${MODES[k][0]}</button>`).join("");mb.querySelectorAll(".chip").forEach(b=>b.onclick=()=>{mode=b.dataset.m;reset();drawModes()});q("rn").hidden=mode!=="reflexion"};
+  const reset=()=>{reflection="";ch="";view=[];hist=[];q("ch").textContent="";q("fb").innerHTML="";q("ab").hidden=true;q("chat").hidden=true;q("cp").hidden=true;q("ans").value="";q("ans2").value=""};
+  drawModes();
+  if(!sample){q("gen").disabled=true;q("ns").hidden=false;return}
+  const thread=()=>{q("fb").innerHTML=view.map(m=>`<div class="msg ${m.r}">${esc(m.t)}</div>`).join("")};
+  async function run(prompt,el,btn){
+    btn.disabled=true;el.textContent="Pensando...";
+    try{const r=await sample(prompt,{cache:false,onText:({text})=>{el.textContent=text}});el.textContent=r.text;return r.text}
+    catch(e){el.textContent=e&&e.code==="rate_limited"?"Llegaste al límite de uso por hoy. Vuelve mañana.":"No se pudo completar. Intenta de nuevo.";return null}
+    finally{btn.disabled=false}
+  }
+  async function turn(btn){
+    btn.disabled=true;view.push({r:"a",t:"Pensando..."});thread();
+    try{
+      const r=await sample(hist,{cache:false,onText:({text})=>{view[view.length-1].t=text;thread()}});
+      view[view.length-1].t=r.text;hist.push({role:"assistant",content:r.text});thread();reflection=view.map(m=>(m.r==="u"?"Persona: ":"Acompañante: ")+m.t).join("\n");
+      q("chat").hidden=false;q("cp").hidden=false;q("cp").textContent="Copiar la conversación";
+    }catch(e){view[view.length-1].t=e&&e.code==="rate_limited"?"Llegaste al límite de uso por hoy. Vuelve mañana.":"No se pudo completar. Intenta de nuevo.";hist.pop();thread()}
+    finally{btn.disabled=false}
+  }
+  const ctx="Tema: "+p.title+"\nContenido del curso:\n"+p.theory.slice(0,3000)+"\nIndicaciones del autor: "+p.exercise;
+  q("gen").onclick=async()=>{
+    reset();
+    const t=await run("Eres un profesor amable. Con este contexto:\n"+ctx+"\n\n"+MODES[mode][1]+" Máximo 80 palabras, en español. Solo el planteamiento, sin soluciones.",q("ch"),q("gen"));
+    if(t){ch=t;q("ab").hidden=false}
+  };
+  q("send").onclick=async()=>{
+    const a=q("ans").value.trim();if(!a)return;
+    if(mode==="reflexion"){
+      view=[{r:"u",t:a}];
+      hist=[{role:"user",content:SYS+"\n\n"+ctx+"\n\nPregunta de reflexión: "+ch+"\n\nMi respuesta: "+a}];
+      await turn(q("send"));return;
+    }
+    const style="Eres un profesor exigente pero amable. Máximo 120 palabras: 1) qué hizo bien, 2) qué le falta, 3) una pregunta para que profundice.";
+    q("fb").textContent="Pensando...";
+    const r=await run("Español.\n"+ctx+"\n\nEjercicio: "+ch+"\nRespuesta del alumno: "+a+"\n\n"+style,q("fb"),q("send"));
+    if(r){view=[{r:"u",t:a},{r:"a",t:r}];q("cp").hidden=false;q("cp").textContent="Copiar mi respuesta"}
+  };
+  q("send2").onclick=async()=>{
+    const a=q("ans2").value.trim();if(!a)return;
+    view.push({r:"u",t:a});hist.push({role:"user",content:a});q("ans2").value="";
+    await turn(q("send2"));
+  };
+  q("toplan").onclick=()=>{const b=document.getElementById("pgen");if(b)b.click();const pl=document.getElementById("s5");if(pl&&pl.scrollIntoView)pl.scrollIntoView({behavior:"smooth"})};
+  q("cp").onclick=async()=>{const t="Ejercicio:\n"+ch+"\n\n"+view.map(m=>(m.r==="u"?"Yo: ":"Claridad: ")+m.t).join("\n\n");q("cp").textContent=(await copy(t))?"Copiado":"No se pudo copiar. Selecciona el texto a mano."};
+}
+</script>
+
+
+</body></html>
