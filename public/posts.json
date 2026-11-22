@@ -3,6 +3,19 @@
   "subtitle": "Aprende con teoría, video y práctica con IA.",
   "posts": [
     {
+      "id": "significado-de-nuestra-historia",
+      "title": "El significado que le damos a nuestra historia",
+      "summary": "Cambia tu mentalidad cambiando la percepción de lo que pasa en tu vida.",
+      "cat": "Mentalidad y crecimiento personal",
+      "level": "Intermedio",
+      "draft": false,
+      "theory": "Uno de los retos más importantes del ser humano es reconocer que no siempre tiene el control sobre lo que sucede en su vida. Una respuesta posible es desarrollar la capacidad de cuestionar la interpretación que construimos de cada experiencia.\n\n1. El punto de partida: reconocer que no siempre tenemos el control sobre lo que sucede. Comprenderlo puede liberarnos de mucho dolor y sufrimiento.\n2. El marco de referencia: cada persona construye un sistema de creencias, valores, experiencias, aprendizajes y autoestima que funciona como filtro para interpretar lo que vive. Por eso una misma experiencia puede ser una oportunidad para alguien y un fracaso definitivo para otra persona.\n3. La señal: si los resultados no son los esperados o llevamos tiempo con un malestar emocional, vale la pena revisar nuestras circunstancias y la interpretación que hacemos de ellas. Esto no significa que todo sea consecuencia de nuestra percepción, sino reconocer qué parte de nuestra realidad podemos transformar.\n4. El camino, autoconocimiento: el primer obstáculo suele ser la falta de autoconocimiento, a la que se suman el miedo, las creencias y, a veces, el ego. Hay que identificar lo que queremos cambiar, las creencias que nos limitan y los miedos que condicionan nuestras decisiones.\n5. La aceptación, Amor Fati: abrazar nuestra propia historia, incluso las partes que no hubiéramos elegido. Aceptar no es resignarse ni justificar lo sucedido: es dejar de luchar contra lo que ya no podemos modificar y concentrar la energía en lo que todavía está en nuestras manos transformar.\n6. La transformación, pasar a la acción: convertir lo comprendido en decisiones y comportamientos diferentes. El cambio puede ser pequeño, lento e incluso incómodo, pero debe existir movimiento.\n\nPreguntas para empezar:\n\n1. ¿La manera en que estoy interpretando esta situación me acerca o me aleja de donde quiero llegar?\n2. ¿Cómo me hizo sentir lo que sucedió y por qué?\n3. ¿Qué creencias están influyendo en mi interpretación?\n4. ¿Qué otro significado puedo atribuirle a esta experiencia?\n5. ¿Qué puedo aprender y qué puedo hacer diferente?\n\nEstas preguntas no buscan que encontremos una explicación positiva a toda costa, sino que desarrollemos la capacidad de observar nuestra realidad con mayor conciencia y objetividad.\n\nUn ejercicio recomendado por Brian Tracy (2024, pp. 136-140), en cuatro pasos para afrontar las preocupaciones:\n\n1. Define la situación: ¿qué es exactamente lo que te preocupa?\n2. Imagina lo peor: ¿qué es lo peor que podría pasar?\n3. Decide aceptarlo: acepta lo peor en caso de que ocurra.\n4. Mejóralo ya: comienza de inmediato a mejorar lo peor.\n\nToma medidas ahora, en lugar de dedicar tu energía a preocuparte.",
+      "opinion": "Para mí, Amor Fati significa aprender a abrazar nuestra propia historia, incluso aquellas partes que no hubiéramos elegido. No porque todo lo que nos sucede sea bueno, justo o merezca ser agradecido, sino porque forma parte de nuestro recorrido y de lo que somos hoy.\n\nNo podemos reescribir los acontecimientos de nuestra historia, pero sí podemos cambiar la relación que tenemos con ellos y decidir qué historia queremos construir a partir de ahora.",
+      "video": "",
+      "pdf": "significado-historia.pdf",
+      "exercise": "Acompañar a la persona a revisar la interpretación que hace de una situación que le preocupa, usando las preguntas del artículo y el ejercicio de cuatro pasos de Brian Tracy (definir la situación, imaginar lo peor, decidir aceptarlo y empezar de inmediato a mejorarlo). Aceptar no es resignarse ni justificar lo sucedido, y no se trata de buscar una explicación positiva a toda costa. No minimizar experiencias dolorosas. Si la persona habla de un dolor muy fuerte o de un trauma, reconocerlo con cuidado y sugerir apoyo profesional. Cerrar siempre con una acción pequeña y concreta."
+    },
+    {
       "id": "inteligencia-emocional",
       "title": "Inteligencia emocional: lo básico que sí funciona",
       "summary": "Cinco habilidades simples y poderosas para entender y manejar tus emociones.",
@@ -18,7 +31,7 @@
       "summary": "Las 10 ideas de John Maeda para diseñar y vivir con menos ruido.",
       "theory": "John Maeda, diseñador y profesor del MIT, propuso diez leyes de la simplicidad. Simplificar no es quitar por quitar: es conservar lo que importa.\n\n1. Reducir: la forma más sencilla de lograr simplicidad es reducir con criterio.\n2. Organizar: agrupar hace que muchas cosas parezcan pocas.\n3. Tiempo: ahorrar tiempo se siente como simplicidad.\n4. Aprender: el conocimiento vuelve todo más simple.\n5. Diferencias: simplicidad y complejidad se necesitan entre sí.\n6. Contexto: lo que está en la periferia también importa.\n7. Emoción: más emoción es mejor que menos.\n8. Confianza: en la simplicidad confiamos.\n9. Fracaso: algunas cosas nunca serán simples.\n10. La única: quita lo obvio, añade lo significativo.",
       "opinion": "La ley que más me sirve es la primera: reducir con criterio. Casi siempre mi problema no es que falte algo, sino que sobra.\n\nPero simplificar se vuelve un error cuando quitas lo que le daba sentido a la cosa. La pregunta útil no es \"¿qué puedo quitar?\", sino \"¿qué es lo que de verdad importa aquí?\".",
-      "video": "https://www.youtube.com/watch?v=y8Gdw6cTfOA",
+      "video": "",
       "exercise": "Practicar la aplicación de las leyes de la simplicidad de Maeda en situaciones cotidianas (una app, un mensaje, un proceso). Varía la ley en cada reto.",
       "cat": "Hábitos y productividad"
     },
@@ -28,10 +41,10 @@
       "summary": "No necesitas tenerlo todo claro. Empieza con cuatro preguntas y un paso pequeño.",
       "cat": "Propósito de vida",
       "level": "Principiante",
-      "draft": false,
+      "draft": true,
       "theory": "El propósito no es un destino que se encuentra de golpe, sino una dirección que se va aclarando al probar. Una guía sencilla, inspirada en el ikigai japonés, usa cuatro preguntas.\n\n1. Lo que amas: ¿qué haces que te hace perder la noción del tiempo?\n2. Lo que se te da bien: ¿qué te piden los demás con frecuencia?\n3. Lo que el mundo necesita: ¿qué problema cercano te importa lo suficiente como para ayudar?\n4. Lo que te sostiene: ¿cómo puedes convertir parte de esto en tu forma de vivir o trabajar?\n\nNo hace falta responder todo hoy. Una regla práctica: elige una idea y pruébala en pequeño durante dos semanas, antes de decidir si es tu camino.",
       "opinion": "Creo que el propósito se parece más a un mapa que se va dibujando que a una respuesta que aparece de pronto. Me ha servido más probar cosas pequeñas que quedarme pensando cuál es la correcta.\n\nY tampoco tiene que ser grandioso: a veces es simplemente cuidar bien de alguien o de algo.",
-      "video": "https://www.youtube.com/watch?v=Nvcj9wlwlxs",
+      "video": "",
       "exercise": "Ayudar a la persona a explorar su propósito con preguntas concretas sobre lo que ama, lo que se le da bien y lo que le importa. Evita frases grandilocuentes. Prioriza acciones pequeñas y reversibles para probar una idea durante dos semanas."
     },
     {
@@ -40,7 +53,7 @@
       "summary": "Hábitos pequeños y constantes para avanzar profesionalmente sin quemarte.",
       "cat": "Desarrollo profesional",
       "level": "Intermedio",
-      "draft": false,
+      "draft": true,
       "theory": "El crecimiento profesional rara vez viene de un gran salto; suele venir de hábitos pequeños sostenidos en el tiempo. Cinco que funcionan en casi cualquier trabajo.\n\n1. Rumbo claro: define hacia dónde quieres ir en uno o dos años, aunque lo ajustes después.\n2. Aprendizaje continuo: dedica un rato fijo a la semana a aprender algo útil para tu siguiente paso.\n3. Visibilidad: comunica lo que logras y su impacto; el buen trabajo que nadie ve crece menos.\n4. Relaciones: cultiva vínculos con colegas, mentores y gente de otras áreas antes de necesitarlos.\n5. Retroalimentación: pídela con regularidad y conviértela en una acción concreta.\n\nUna regla práctica: elige un solo hábito este mes y hazlo tan pequeño que sea imposible no cumplirlo.",
       "opinion": "Pienso que el hábito más subestimado es pedir retroalimentación. Da un poco de miedo, pero acorta años de ensayo y error.\n\nTambién creo que crecer no significa trabajar más horas, sino trabajar con más dirección.",
       "video": "",
@@ -52,7 +65,7 @@
       "summary": "Prácticas sencillas para conectar contigo, con otros y con lo que le da sentido a tu vida.",
       "cat": "Espiritualidad",
       "level": "Principiante",
-      "draft": false,
+      "draft": true,
       "theory": "La espiritualidad no depende de una religión en particular: tiene que ver con sentirte conectado con algo más grande que tu rutina y con lo que le da sentido a tu vida. Puedes cultivarla de forma sencilla, sea cual sea tu creencia.\n\n1. Pausa y silencio: unos minutos al día sin pantallas ni ruido, para escucharte.\n2. Gratitud: notar y nombrar lo bueno que ya tienes, aunque el día haya sido difícil.\n3. Conexión: con otras personas, con la naturaleza o con aquello en lo que crees.\n4. Valores: reconocer qué te importa de verdad y revisar si tus decisiones lo reflejan.\n5. Servicio: ayudar a otros sin esperar nada a cambio.\n\nUna regla práctica: empieza con tres minutos de silencio y una cosa por la que agradecer, al despertar o al acostarte.",
       "opinion": "Creo que la espiritualidad se vive más en lo pequeño que en lo extraordinario: una pausa, un gracias dicho de verdad, una conversación sin prisa.\n\nCada persona la vive a su manera, y me parece importante respetar eso, tanto en los demás como en uno mismo.",
       "video": "",
@@ -64,7 +77,7 @@
       "summary": "Cinco ideas para construir una relación más amable y realista contigo.",
       "cat": "Autoestima",
       "level": "Principiante",
-      "draft": false,
+      "draft": true,
       "theory": "La autoestima es la valoración que haces de ti. No se trata de sentirte superior, sino de tratarte con justicia y con respeto. Se construye con hábitos, no con frases motivacionales.\n\n1. Autoconocimiento: identifica tus fortalezas y también tus límites, sin dramatizar.\n2. Autocompasión: háblate como le hablarías a un amigo que se equivocó.\n3. Límites: decir no cuando lo necesitas también es una forma de cuidarte.\n4. Logros pequeños: registra lo que sí hiciste cada día, aunque parezca poco.\n5. Diálogo interno: nota las frases duras que te repites y cámbialas por otras más justas.\n\nUna regla práctica: al terminar el día, escribe una cosa que hiciste bien. Si sientes que la baja autoestima te supera, hablar con un profesional de salud mental puede ayudarte mucho.",
       "opinion": "Pienso que la autoestima sana no se nota en lo seguros que parecemos, sino en cómo nos hablamos cuando fallamos.\n\nMe parece valioso aprender a ser exigente sin ser cruel con uno mismo.",
       "video": "",
